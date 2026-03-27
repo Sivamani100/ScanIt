@@ -134,7 +134,12 @@ class _NewBillScreenState extends State<NewBillScreen> {
       // This makes "Share" instant because the URL is already cached/up-to-date in cloud.
       if (appProvider.shopSettings != null) {
         PdfService.generateInvoicePdfBytes(bill, appProvider.shopSettings!)
-           .then((bytes) => SupabaseService.uploadInvoicePdf(bytes, "invoice_${bill.billNumber}.pdf"))
+           .then((bytes) => SupabaseService.uploadInvoicePdf(bytes, "invoice_${bill.billNumber}_${bill.id}.pdf"))
+           .then((url) async {
+             if (url.isNotEmpty && bill.id.isNotEmpty) {
+               await SupabaseService.client.from('bills').update({'pdf_url': url}).eq('id', bill.id);
+             }
+           })
            .catchError((e) {
              debugPrint("Background archiving failed: $e");
              return ""; 

@@ -199,6 +199,9 @@ class PdfService {
       // Try to upload to Supabase to archive it and get a public URL
       try {
         pdfUrl = await uploadInvoice(bill, shop);
+        if (pdfUrl != null && bill.id.isNotEmpty) {
+           await SupabaseService.client.from('bills').update({'pdf_url': pdfUrl}).eq('id', bill.id);
+        }
       } catch (e) {
         debugPrint("Could not upload to Supabase: $e");
       }
