@@ -137,7 +137,8 @@ class _ProductCard extends StatelessWidget {
 
 class AddProductScreen extends StatefulWidget {
   final Product? product;
-  const AddProductScreen({super.key, this.product});
+  final String? initialBarcode;
+  const AddProductScreen({super.key, this.product, this.initialBarcode});
 
   @override
   State<AddProductScreen> createState() => _AddProductScreenState();
@@ -162,6 +163,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
       _barcodeController.text = widget.product!.barcode ?? "";
       _selectedCategory = widget.product!.categoryId;
       _isWeightBased = widget.product!.isWeightBased;
+    } else if (widget.initialBarcode != null) {
+      _barcodeController.text = widget.initialBarcode!;
     }
   }
 

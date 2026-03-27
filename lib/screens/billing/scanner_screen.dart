@@ -5,6 +5,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import '../../constants/colors.dart';
 import '../../providers/app_provider.dart';
 import 'package:iconsax/iconsax.dart';
+import '../management/products_screen.dart';
 import '../../utils/notifications.dart';
 
 enum ScannerMode { billing, selection }
@@ -43,6 +44,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
                 if (code != null) {
                   // PRD 1.8: Selection Mode - Direct Return
                   if (widget.mode == ScannerMode.selection) {
+                    setState(() => _isScanned = true); // Prevent double pop
                     HapticFeedback.mediumImpact();
                     Navigator.pop(context, code);
                     return;
@@ -279,8 +281,10 @@ class _ScannerScreenState extends State<ScannerScreen> {
           ElevatedButton(
             onPressed: () {
               Navigator.pop(ctx);
-              ScanItNotifications.showTopSnackBar(context, 'Redirecting to Inventory to add product...', backgroundColor: ScanBillColors.primary);
-              // For now, keep the scanner open so they can continue scanning other things
+              Navigator.pushReplacement(
+                context, 
+                MaterialPageRoute(builder: (_) => AddProductScreen(initialBarcode: barcode))
+              );
             },
             style: ElevatedButton.styleFrom(backgroundColor: ScanBillColors.primary, foregroundColor: Colors.white),
             child: const Text('Add Product'),
