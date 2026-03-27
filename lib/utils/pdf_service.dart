@@ -212,6 +212,7 @@ class PdfService {
       
       try {
         final isInstalled = await WhatsappShare.isInstalled(package: Package.whatsapp);
+        
         if (isInstalled == true) {
           final tempDir = await getTemporaryDirectory();
           final tempFile = File('${tempDir.path}/invoice_${bill.billNumber}.pdf');
@@ -221,19 +222,21 @@ class PdfService {
             text: message,
             phone: fullPhone,
             filePath: [tempFile.path],
+            package: Package.whatsapp,
           );
           return; // Shared directly, done.
         }
       } catch (e) {
-        debugPrint("Direct WhatsApp sharing failed: $e. Falling back to system share.");
+        debugPrint("Direct WhatsApp sharing failed: $e. Falling back to wa.me link.");
       }
 
-      // Fallback for url_launcher if direct sharing fails but we want to open chat
+      // Fallback: If direct file sharing failed but we have a phone, try wa.me link
+      // Note: This won't attach the PDF file, but will open the chat with the bill summary and PDF link.
       final waUrl = Uri.parse("https://wa.me/$fullPhone?text=${Uri.encodeComponent(message)}");
       try {
         if (await canLaunchUrl(waUrl)) {
           await launchUrl(waUrl, mode: LaunchMode.externalApplication);
-          await Future.delayed(const Duration(milliseconds: 1000));
+          return; // Opened chat directly, done.
         }
       } catch (e) {
         debugPrint("Could not launch WhatsApp chat: $e");
