@@ -1,0 +1,49 @@
+﻿Resolving dependencies...
+Downloading packages...
+  characters 1.4.0 (1.4.1 available)
+  matcher 0.12.17 (0.12.19 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.2 available)
+  path_provider_foundation 2.5.1 (2.6.0 available)
+  test_api 0.7.7 (0.7.11 available)
+  vector_math 2.2.0 (2.3.0 available)
+Got dependencies!
+7 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing flutter_app...                                        
+
+warning - Unused import: 'screens/billing/new_bill_screen.dart' - lib\main.dart:13:8 - unused_import
+warning - Unused import: 'screens/billing/bill_detail_screen.dart' - lib\main.dart:14:8 - unused_import
+warning - Unused import: 'screens/settings/settings_screen.dart' - lib\main.dart:15:8 - unused_import
+warning - The value of the local variable 'now' isn't used - lib\providers\app_provider.dart:125:11 - unused_local_variable
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\auth\login_screen.dart:39:53 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\auth\login_screen.dart:65:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\auth\login_screen.dart:113:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\billing\bill_detail_screen.dart:113:121 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\billing\new_bill_screen.dart:157:57 - deprecated_member_use
+warning - Unused import: '../../constants/colors.dart' - lib\screens\billing\scanner_screen.dart:4:8 - unused_import
+  error - Target of URI doesn't exist: 'billing/new_bill_screen.dart' - lib\screens\dashboard\home_screen.dart:6:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: 'billing/bill_detail_screen.dart' - lib\screens\dashboard\home_screen.dart:7:8 - uri_does_not_exist
+  error - The name 'NewBillScreen' isn't a class - lib\screens\dashboard\home_screen.dart:81:94 - creation_with_non_type
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\dashboard\home_screen.dart:89:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\dashboard\home_screen.dart:104:51 - deprecated_member_use
+  error - The name 'NewBillScreen' isn't a class - lib\screens\dashboard\home_screen.dart:157:98 - creation_with_non_type
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\dashboard\home_screen.dart:230:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\dashboard\home_screen.dart:260:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\dashboard\home_screen.dart:268:52 - deprecated_member_use
+  error - The method 'BillDetailScreen' isn't defined for the type 'BillCard' - lib\screens\dashboard\home_screen.dart:291:78 - undefined_method
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\dashboard\home_screen.dart:299:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\dashboard\home_screen.dart:308:81 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\dashboard\home_screen.dart:338:85 - deprecated_member_use
+  error - Expected to find ')' - lib\screens\dashboard\home_screen.dart:350:6 - expected_token
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\dashboard\insights_screen.dart:115:80 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\management\management_screens.dart:77:53 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\management\management_screens.dart:232:13 - deprecated_member_use
+   info - The variable name '_InputDecor' isn't a lowerCamelCase identifier - lib\screens\management\management_screens.dart:272:17 - non_constant_identifier_names
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\management\products_screen.dart:83:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\management\products_screen.dart:100:93 - deprecated_member_use
+   info - The variable name '_InputDecor' isn't a lowerCamelCase identifier - lib\screens\management\products_screen.dart:270:17 - non_constant_identifier_names
+warning - Unused import: 'package:iconsax/iconsax.dart' - lib\screens\settings\settings_screen.dart:6:8 - unused_import
+   info - The variable name '_InputDecor' isn't a lowerCamelCase identifier - lib\screens\settings\settings_screen.dart:104:17 - non_constant_identifier_names
+  error - The name 'MyApp' isn't a class - test\widget_test.dart:16:35 - creation_with_non_type
+
